@@ -38,7 +38,7 @@
         </div>
         
         <!-- Text Content Section -->
-        <div class="info-text">
+        <div class="info-text" id="1st-p">
           <h2>Your personal trial room</h2>
           
           <p><strong>Try on your favourite styles in just 2 easy steps</strong></p>
@@ -60,31 +60,21 @@
             <button class="try-on-btn">Try on</button>
           </div>
         </div>
-      </div>
 
-      <div class="outfit-preview hidden" id="outfit-preview">
-
-        <!-- Content Container -->
-        <div class="outfit-preview-content">
-            <!-- Image Preview -->
-            <div class="product-image">
-            <img src="{{ product.images.first | img_url: 'medium' }}" alt="{{ product.title }}" />
+        <div class="info-text  hidden" id="2nd-p">
+            <div class="nd-p-text">
+                <h2>Outfit Preview Ready!</h2>
+                <img src="https://cdn-icons-png.flaticon.com/512/2824/2824572.png" alt="Success Icon" class="success-icon">
+                <p>Woohoo!<br>You look like a star in this outfit</p>
+                <p><a href="#" class="share-link">Share your look!</a></p>
+                <p>Don't forget to <a href="#" class="share-link">Share preview</a> with friends for their thoughts</p>
             </div>
-
-            <!-- Success Message and Actions -->
-            <div class="info-text">
-            <h2>Outfit Preview Ready!</h2>
-            <img src="path_to_success_icon.png" alt="Success Icon" class="success-icon">
-            <p>Woohoo!<br>You look like a star in this outfit</p>
-            <p><a href="#" class="share-link">Share your look!</a></p>
-            <p>Don't forget to <a href="#" class="share-link">Share preview</a> with friends for their thoughts</p>
-            
             <!-- Action Buttons -->
             <div class="action-buttons">
-                <button class="add-to-cart-btn">Add to cart</button>
+                <button class="add-to-cart-btn" data-product-id="{{ product.variants[0].id }}">Add to cart</button>
                 <button class="new-image-btn">Use new image</button>
             </div>
-        </div>
+        </div> 
       </div>
 </div>
 

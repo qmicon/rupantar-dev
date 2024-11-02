@@ -3,7 +3,7 @@
 client_id = "62d6d8d690985810fd3ca425fde04174"
 name = "rupantar-dev"
 handle = "rupantar-dev"
-application_url = "https://vacancies-suggestions-router-fda.trycloudflare.com"
+application_url = "https://thanksgiving-accepting-oclc-spectacular.trycloudflare.com"
 embedded = true
 
 [access_scopes]
@@ -12,9 +12,9 @@ scopes = ""
 
 [auth]
 redirect_urls = [
-  "https://vacancies-suggestions-router-fda.trycloudflare.com/auth/callback",
-  "https://vacancies-suggestions-router-fda.trycloudflare.com/auth/shopify/callback",
-  "https://vacancies-suggestions-router-fda.trycloudflare.com/api/auth/callback"
+  "https://thanksgiving-accepting-oclc-spectacular.trycloudflare.com/auth/callback",
+  "https://thanksgiving-accepting-oclc-spectacular.trycloudflare.com/auth/shopify/callback",
+  "https://thanksgiving-accepting-oclc-spectacular.trycloudflare.com/api/auth/callback"
 ]
 
 [webhooks]
