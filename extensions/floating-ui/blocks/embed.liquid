@@ -1,0 +1,103 @@
+{% if template == 'product' %}
+    <!-- Virtual Try-On Button -->
+    <button class="virtual-try-on-btn" id="toggle-product-info-btn" style="position: fixed; bottom: 0; right: 0">Virtual Try-On</button>
+   
+  
+    <div class="product-info-component hidden" id="product-info">
+
+      <!-- Loading Overlay -->
+      <div class="loading-overlay hidden" id="loading-overlay">
+        <!-- SVG Loader -->
+        <svg class="loading-spinner" width="80" height="80" viewBox="0 0 50 50">
+            <circle
+            cx="25"
+            cy="25"
+            r="20"
+            fill="none"
+            stroke-width="4"
+            stroke="#007bff"
+            stroke-linecap="round"
+            stroke-dasharray="31.4 31.4"
+            stroke-dashoffset="0"
+            transform="rotate(-90 25 25)"
+            />
+        </svg>
+
+        <h2>Shopping magic is on its way!</h2>
+        <p>Please don't close this window, we are getting things ready for you</p>
+      </div>
+
+      <!-- Close Button -->
+      <button class="close-btn" id="close-product-info">&times;</button>
+  
+      <!-- Product Image and Information -->
+      <div class="product-info-content" id="product-info-content">
+        <!-- Product Image -->
+        <div class="product-image">
+          <img src="{{ product.images.first | img_url: 'medium' }}" alt="{{ product.title }}" />
+        </div>
+        
+        <!-- Text Content Section -->
+        <div class="info-text">
+          <h2>Your personal trial room</h2>
+          
+          <p><strong>Try on your favourite styles in just 2 easy steps</strong></p>
+          <ol>
+            <li>Upload your fabulous picture</li>
+            <li>Check yourself out in the outfit!</li>
+          </ol>
+          
+          <p class="fashion-tip"><strong>Fashion fairy tip ✨</strong><br>
+            For the best outfit preview, upload your photo in a similar clothing style that's over 2 MB.
+          </p>
+          
+          <!-- Upload and Try On Section -->
+          <div class="upload-section">
+            <div class="uploaded-image">
+              <!-- Image preview will be inserted here by JavaScript -->
+            </div>
+            <button class="upload-btn">Upload photo</button>
+            <button class="try-on-btn">Try on</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="outfit-preview hidden" id="outfit-preview">
+
+        <!-- Content Container -->
+        <div class="outfit-preview-content">
+            <!-- Image Preview -->
+            <div class="product-image">
+            <img src="{{ product.images.first | img_url: 'medium' }}" alt="{{ product.title }}" />
+            </div>
+
+            <!-- Success Message and Actions -->
+            <div class="info-text">
+            <h2>Outfit Preview Ready!</h2>
+            <img src="path_to_success_icon.png" alt="Success Icon" class="success-icon">
+            <p>Woohoo!<br>You look like a star in this outfit</p>
+            <p><a href="#" class="share-link">Share your look!</a></p>
+            <p>Don't forget to <a href="#" class="share-link">Share preview</a> with friends for their thoughts</p>
+            
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="add-to-cart-btn">Add to cart</button>
+                <button class="new-image-btn">Use new image</button>
+            </div>
+        </div>
+      </div>
+</div>
+
+    </div>
+  {% endif %}
+   
+  {% schema %}
+    {
+      "name": "App Embed",
+      "target": "body",
+      "javascript": "embed.js",
+      "stylesheet": "embed.css",
+      "settings": []
+    }
+  {% endschema %}
+  
