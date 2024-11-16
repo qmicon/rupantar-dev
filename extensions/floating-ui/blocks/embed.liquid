@@ -34,7 +34,11 @@
       <div class="product-info-content" id="product-info-content">
         <!-- Product Image -->
         <div class="product-image">
-          <img src="{{ product.images.first | img_url: 'medium' }}" alt="{{ product.title }}" />
+          <img src="{{ product.images.first | img_url: 'large' }}" 
+               alt="{{ product.title }}" 
+               data-product-image="https:{{ product.images.first | img_url: 'large' }}"
+               data-product-title="{{ product.title }}"
+               data-product-type="{{ product.metafields.custom.type_of_cloth }}" />
         </div>
         
         <!-- Text Content Section -->
@@ -79,6 +83,12 @@
 </div>
 
     </div>
+    <div class="notification-toast hidden" id="notification">
+      <div class="notification-content">
+        <span class="checkmark">✓</span>
+        <span class="message">Added to cart successfully!</span>
+      </div>
+    </div>
   {% endif %}
    
   {% schema %}
@@ -90,4 +100,3 @@
       "settings": []
     }
   {% endschema %}
-  

@@ -17,4 +17,6 @@ module.exports = {
   serverModuleFormat: "cjs",
   dev: { port: process.env.HMR_SERVER_PORT || 8002 },
   future: {},
+  serverDependenciesToBundle: [/^marked.*/],
+  serverEnv: ['IMGHIPPO_API_KEY', 'MODELLAB_API_KEY'], // Add environment variables to be available on server
 };

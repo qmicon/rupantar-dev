@@ -129,10 +129,47 @@
   }
   
   .try-on-btn {
+    position: relative;
     background-color: #ffffff;
     color: #007bff;
     border: 2px solid #007bff;
   }
+  
+  .try-on-btn:disabled {
+    background-color: #ffffff;
+    color: #b3d7ff;
+    border: 2px solid #b3d7ff;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .try-on-btn.loading {
+    color: transparent !important;
+  }
+  
+  .try-on-btn.loading::after {
+    content: '';
+    position: absolute;
+    left: calc(50% - 10px);  /* Center horizontally */
+    top: calc(50% - 10px);   /* Center vertically */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spinner 0.8s linear infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes spinner {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
   
   /* Close Button */
   .close-btn {
@@ -271,4 +308,37 @@
     gap: 10px; /* Space between buttons */
     justify-content: center; /* Centers buttons horizontally */
     }
-  
+
+.notification-toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background-color: var(--notification-bg, #4CAF50);
+  color: var(--notification-color, white);
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 10000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.notification-toast.show {
+  transform: translateX(-50%) translateY(0);
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.checkmark {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.message {
+  font-size: 16px;
+  font-weight: 500;
+}
