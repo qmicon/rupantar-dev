@@ -1,0 +1,32 @@
+# fly.toml app configuration file generated for rupantar-dev-deploy on 2024-11-17T11:26:28+05:30
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'rupantar-dev-deploy'
+primary_region = 'bom'
+
+[build]
+
+[env]
+  PORT = '3000'
+  SCOPES = ''
+  SHOPIFY_API_KEY = '9f297c35e2b3b3e2fa20babdb098a13c'
+  SHOPIFY_APP_URL = 'https://rupantar-dev-deploy.fly.dev'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
+
+[mounts]
+  source = "sqllite_prisma"
+  destination = "/data"

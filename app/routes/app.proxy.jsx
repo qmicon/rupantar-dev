@@ -3,11 +3,7 @@ import { json } from "@remix-run/node";
 
 export const action = async ({ request }) => {
   console.log("-------------hit app proxy-------------");
-
-  const { session } = await authenticate.public.appProxy(request);
-  if (!session?.accessToken) {
-    return json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  await authenticate.public.appProxy(request);
 
   if (request.method === 'OPTIONS') {
     return new Response(null, {
@@ -89,10 +85,7 @@ export const action = async ({ request }) => {
 };
 
 export const loader = async ({ request }) => {
-  const { session } = await authenticate.public.appProxy(request);
-  if (!session?.accessToken) {
-    return json({ error: 'Unauthorized' }, { status: 401 });
-  }
+  await authenticate.public.appProxy(request);
 
   const url = new URL(request.url);
   const id = url.searchParams.get('id');

@@ -26,7 +26,16 @@ document.querySelector(".upload-btn").addEventListener("click", function() {
       const reader = new FileReader();
       reader.onload = function(e) {
         const uploadedImageContainer = document.querySelector(".uploaded-image");
-        uploadedImageContainer.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image" />`;
+        // Create temporary image to get dimensions
+        const tempImg = new Image();
+        tempImg.onload = function() {
+          const tryOnButton = document.querySelector(".try-on-btn");
+          tryOnButton.setAttribute('data-original-width', this.width);
+          tryOnButton.setAttribute('data-original-height', this.height);
+          // Continue with existing image display
+          uploadedImageContainer.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image" />`;
+        };
+        tempImg.src = e.target.result;
         
         const formData = new FormData();
         formData.append('image', file);
@@ -117,15 +126,38 @@ document.querySelector(".try-on-btn").addEventListener("click", function() {
           const productInfoSec = document.getElementById("1st-p");
           const outfitPreviewSec = document.getElementById("2nd-p");
           const productImage = document.querySelector('.product-image img');
+          const tryOnButton = document.querySelector(".try-on-btn");
           
-          // Create a promise that resolves when the image is loaded
+          // Get original dimensions
+          const originalWidth = parseInt(tryOnButton.getAttribute('data-original-width'));
+          const originalHeight = parseInt(tryOnButton.getAttribute('data-original-height'));
+          
+          // Create a new image to load the generated result
+          const generatedImage = new Image();
+          generatedImage.crossOrigin = "anonymous";
+          
+          // Create imageLoadPromise that includes canvas processing
           const imageLoadPromise = new Promise((resolve, reject) => {
-            productImage.onload = resolve;
-            productImage.onerror = reject;
-            productImage.src = data.imageUrl;
+            generatedImage.onload = function() {
+              // Create canvas
+              const canvas = document.createElement('canvas');
+              canvas.width = originalWidth;
+              canvas.height = originalHeight;
+              const ctx = canvas.getContext('2d');
+              
+              // Draw and resize the image
+              ctx.drawImage(generatedImage, 0, 0, originalWidth, originalHeight);
+              
+              // Set processed image to product image
+              productImage.src = canvas.toDataURL('image/jpeg');
+              productImage.onload = resolve;
+              productImage.onerror = reject;
+            };
+            generatedImage.onerror = reject;
+            generatedImage.src = data.imageUrl;
           });
 
-          // Wait for image to load before updating UI
+          // Wait for image processing and loading before updating UI
           imageLoadPromise
             .then(() => {
               loadingOverlay.classList.add("hidden");

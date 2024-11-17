@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "9f297c35e2b3b3e2fa20babdb098a13c"
+name = "rupantar-dev-deploy"
+handle = "rupantar-dev-deploy"
+application_url = "https://rupantar-dev-deploy.fly.dev"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = ""
+
+[auth]
+redirect_urls = [ "https://rupantar-dev-deploy.fly.dev/api/auth" ]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false
+
+[app_proxy]
+url = "https://rupantar-dev-deploy.fly.dev/app/proxy"
+subpath = "rupantarai"
+prefix = "tools"

@@ -39,23 +39,34 @@
     text-align: left;
     display: flex;
     flex-direction: column;
+    max-height: 90vh; /* Limit height to 90% of viewport height */
+    overflow: auto; /* Enable scrolling if content overflows */
   }
   
   .product-info-content {
     display: flex;
     gap: 20px;
     width: 100%;
+    max-height: calc(85vh - 60px); /* Account for padding and margins */
+    overflow: auto;
   }
   
   /* Product Image Styling */
   .product-image {
     width: 50%; /* Left half */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: calc(85vh - 60px);
   }
   
   .product-image img {
     width: 100%;
     height: auto;
     border-radius: 8px;
+    max-height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+    max-width: 100%;
   }
   
   /* Info Text Styling */
@@ -232,6 +243,8 @@
     flex-direction: row;
     gap: 20px;
     padding: 20px;
+    max-height: 90vh;
+    overflow: auto;
   }
   
   
