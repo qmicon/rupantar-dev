@@ -8,11 +8,6 @@ document.getElementById("toggle-product-info-btn").addEventListener("click", fun
 
 document.getElementById("close-product-info").addEventListener("click", function() {
   document.getElementById("product-info").classList.add("hidden");
-  const productInfoSec = document.getElementById("1st-p");
-  const outfitPreviewSec = document.getElementById("2nd-p");
-
-  if (productInfoSec.classList.contains("hidden")) productInfoSec.classList.remove("hidden");
-  if (!outfitPreviewSec.classList.contains("hidden")) outfitPreviewSec.classList.add("hidden");
 });
 
 document.querySelector(".upload-btn").addEventListener("click", function() {
