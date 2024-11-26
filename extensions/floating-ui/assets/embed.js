@@ -276,3 +276,26 @@ document.querySelector(".new-image-btn").addEventListener("click", function() {
   if (!outfitPreviewSec.classList.contains("hidden")) outfitPreviewSec.classList.add("hidden");
 });
 
+// Add popup functionality
+document.querySelector('.product-image img').addEventListener('click', function() {
+  const popup = document.getElementById('imagePopup');
+  const popupImage = popup.querySelector('.popup-image');
+  popupImage.src = this.src;
+  popup.classList.remove('hidden');
+  document.body.style.overflow = 'hidden'; // Prevent background scrolling
+});
+
+document.querySelector('.popup-close-btn').addEventListener('click', function() {
+  const popup = document.getElementById('imagePopup');
+  popup.classList.add('hidden');
+  document.body.style.overflow = ''; // Restore scrolling
+});
+
+// Close popup when clicking outside the image
+document.getElementById('imagePopup').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.classList.add('hidden');
+    document.body.style.overflow = ''; // Restore scrolling
+  }
+});
+

@@ -74,13 +74,13 @@
     width: 50%; /* Right half */
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px; /* Reduced from 10px */
   }
   
   .info-text h2 {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Reduced from 10px */
   }
   
   .info-text p {
@@ -91,13 +91,14 @@
   .info-text .fashion-tip {
     font-size: 14px;
     color: #666;
-    margin-top: 10px;
+    margin-top: 5px; /* Reduced from 10px */
   }
   
   .info-text ol {
     padding-left: 20px;
     font-size: 16px;
     color: #333;
+    margin: 5px 0; /* Add this to reduce space around lists */
   }
   
   /* Upload Section Styling */
@@ -285,7 +286,7 @@
   .action-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 8px; /* Reduced from 15px */
   }
   
   .new-image-btn {
@@ -312,8 +313,8 @@
     align-items: center; /* Centers content horizontally */
     justify-content: center; /* Centers content vertically */
     text-align: center; /* Centers text within the container */
-    gap: 15px; /* Adds space between elements */
-    padding: 20px; /* Adds some padding around the content */
+    gap: 8px; /* Reduced from 15px */
+    padding: 10px; /* Reduced from 20px */
     }
 
   .info-text .action-buttons {
@@ -354,4 +355,263 @@
 .message {
   font-size: 16px;
   font-weight: 500;
+}
+
+/* Image Popup Styles */
+.image-popup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.popup-image {
+  max-width: 90%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 2001;
+}
+
+.popup-close-btn:hover {
+  opacity: 0.8;
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+  .virtual-try-on-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  #product-info {
+    width: 95%;
+    padding: 20px;
+    max-height: 95vh;
+  }
+
+  .product-info-content {
+    flex-direction: column;
+    gap: 10px; /* Reduced from 15px */
+  }
+
+  .product-image,
+  .info-text {
+    width: 100%;
+  }
+
+  .product-image {
+    max-height: 40vh;
+  }
+
+  .product-image img {
+    max-height: 40vh;
+  }
+
+  .upload-section {
+    flex-wrap: nowrap;
+    justify-content: space-between; /* Changed to space-between */
+    gap: 15px;
+    order: -1;
+    margin-bottom: 20px;
+    width: 100%; /* Ensure full width */
+    min-height: 120px; /* Set minimum height to match uploaded-image */
+  }
+
+  .uploaded-image {
+    width: 120px; /* Fixed width */
+    height: 120px; /* Same as width for square */
+    flex: none; /* Prevent any flex growing/shrinking */
+  }
+
+  .upload-section-buttons {
+    width: calc(100% - 135px); /* Full remaining width accounting for gap */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space evenly */
+    height: 120px; /* Match height with image container */
+  }
+
+  .upload-btn,
+  .try-on-btn {
+    width: 100%;
+    height: calc(50% - 5px); /* Take up half the height minus half the gap */
+    margin: 0; /* Remove margin since we're using gap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .upload-btn,
+  .try-on-btn,
+  .add-to-cart-btn,
+  .new-image-btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+  }
+
+  .notification-toast {
+    width: 90%;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+
+  .loading-overlay {
+    padding: 20px;
+    text-align: center;
+    gap: 8px; /* Reduced from 15px */
+  }
+
+  .loading-overlay h2 {
+    font-size: 18px;
+  }
+
+  .loading-overlay p {
+    font-size: 14px;
+  }
+
+  .loading-spinner {
+    width: 60px;
+    height: 60px;
+  }
+
+  .info-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .info-text h2 {
+    font-size: 20px;
+  }
+
+  .info-text p,
+  .info-text ol,
+  .fashion-tip {
+    font-size: 14px;
+  }
+
+  .upload-btn,
+  .try-on-btn,
+  .add-to-cart-btn,
+  .new-image-btn {
+    font-size: 14px;
+  }
+
+  .nd-p-text h2 {
+    font-size: 20px;
+  }
+
+  .nd-p-text p {
+    font-size: 14px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+
+  .checkmark {
+    font-size: 16px;
+  }
+
+  .info-text h2:first-child {
+    margin-top: 15px;
+  }
+
+  .info-text .nd-p-text {
+    gap: 4px; /* Reduced from 8px */
+    padding: 5px; /* Reduced from 10px */
+  }
+
+  .success-icon {
+    width: 35px; /* Reduced from 50px */
+    margin-top: 5px; /* Reduced from 10px */
+  }
+
+  .info-text .nd-p-text p {
+    margin: 0; /* Remove default paragraph margins */
+    line-height: 1.3; /* Tighter line height for mobile */
+  }
+
+  .upload-section-buttons .upload-btn,
+  .upload-section-buttons .try-on-btn {
+    font-size: 18px; /* Increased from 14px */
+    font-weight: 500;
+    letter-spacing: 0.5px; /* Add slight letter spacing for better readability */
+  }
+
+  .popup-close-btn {
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+  }
+
+  .popup-image {
+    max-width: 95%;
+    max-height: 95vh;
+  }
+}
+
+/* Add small phone styles */
+@media screen and (max-width: 480px) {
+  #product-info {
+    padding: 15px;
+  }
+
+  .info-text h2 {
+    font-size: 20px;
+  }
+
+  .info-text p,
+  .info-text ol {
+    font-size: 14px;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+  }
+
+  .info-text h2,
+  .nd-p-text h2 {
+    font-size: 18px;
+  }
+
+  .info-text p,
+  .info-text ol,
+  .fashion-tip,
+  .nd-p-text p,
+  .upload-btn,
+  .try-on-btn,
+  .add-to-cart-btn,
+  .new-image-btn,
+  .message {
+    font-size: 13px;
+  }
+
+  .checkmark {
+    font-size: 14px;
+  }
 }

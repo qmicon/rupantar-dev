@@ -1,6 +1,6 @@
 {% if template == 'product' %}
     <!-- Virtual Try-On Button -->
-    <button class="virtual-try-on-btn" id="toggle-product-info-btn" style="position: fixed; bottom: 0; right: 0">Virtual Try-On</button>
+    <button class="virtual-try-on-btn" id="toggle-product-info-btn" style="position: fixed; bottom: 0; right: 0">Trial Room</button>
    
   
     <div class="product-info-component hidden" id="product-info">
@@ -60,8 +60,10 @@
             <div class="uploaded-image">
               <!-- Image preview will be inserted here by JavaScript -->
             </div>
-            <button class="upload-btn">Upload photo</button>
-            <button class="try-on-btn">Try on</button>
+            <div class="upload-section-buttons">
+              <button class="upload-btn">Upload photo</button>
+              <button class="try-on-btn">Try on</button>
+            </div>
           </div>
         </div>
 
@@ -88,6 +90,12 @@
         <span class="checkmark">✓</span>
         <span class="message">Added to cart successfully!</span>
       </div>
+    </div>
+
+    <!-- Image Popup Modal -->
+    <div class="image-popup-modal hidden" id="imagePopup">
+      <button class="popup-close-btn">&times;</button>
+      <img src="" alt="Full size image" class="popup-image">
     </div>
   {% endif %}
    
