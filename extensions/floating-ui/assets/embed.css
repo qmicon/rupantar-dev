@@ -396,12 +396,6 @@
 
 /* Add responsive styles */
 @media screen and (max-width: 768px) {
-  .virtual-try-on-btn {
-    padding: 12px 24px;
-    font-size: 14px;
-    bottom: 20px;
-    right: 20px;
-  }
 
   #product-info {
     width: 95%;
