@@ -57,7 +57,7 @@ export const action = async ({ request }) => {
           guidance_scale: 7.5,
           num_inference_steps: 21,
           seed: null,
-          temp: "no",
+          temp: false,
           webhook: null,
           track_id: null
         })
